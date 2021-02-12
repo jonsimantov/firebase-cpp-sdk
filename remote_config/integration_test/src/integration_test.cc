@@ -83,9 +83,13 @@ class FirebaseRemoteConfigTest : public FirebaseTest {
 #endif  // TEST_DEPRECATED
 };
 
-FirebaseRemoteConfigTest::FirebaseRemoteConfigTest() : initialized_(false) {
-  FindFirebaseConfig(FIREBASE_CONFIG_STRING);
-}
+# if TEST_DEPRECATED
+  FirebaseRemoteConfigTest::FirebaseRemoteConfigTest() : initialized_deprecated_(false) {
+#else
+  FirebaseRemoteConfigTest::FirebaseRemoteConfigTest() : initialized_(false) {
+#endif // TEST_DEPRECATED
+    FindFirebaseConfig(FIREBASE_CONFIG_STRING);
+  }
 
 FirebaseRemoteConfigTest::~FirebaseRemoteConfigTest() {
   // Must be cleaned up on exit.
