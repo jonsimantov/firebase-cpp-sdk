@@ -94,6 +94,7 @@ class FirebaseRemoteConfigTest : public FirebaseTest {
 FirebaseRemoteConfigTest::~FirebaseRemoteConfigTest() {
   // Must be cleaned up on exit.
   assert(app_ == nullptr);
+#if TEST_DEPRECATED == 0
   assert(rc_ == nullptr);
 }
 
