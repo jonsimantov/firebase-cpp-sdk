@@ -42,7 +42,7 @@
 // If 1, will test the deprecating module functions. 0 will test RemoteConfig
 // instance functions.
 // TODO(b/178658613) clean up when remove deprecated V1 code
-#define TEST_DEPRECATED 0
+#define TEST_DEPRECATED 1
 
 namespace firebase_testapp_automated {
 
