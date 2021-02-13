@@ -567,11 +567,11 @@ void Terminate(JNIEnv* env) {
       pthread_mutex_destroy(&g_task_callbacks_mutex);
     }
 
-    LogDebug("VJ: shutting down logs ")
+    LogDebug("VJ: shutting down logs ");
     // Shutdown the log if it was initialized.
     jclass log_class = log::GetClass();
     if (log_class) {
-      LogDebug("VJ: ;Got log class")
+      LogDebug("VJ: ;Got log class");
       env->CallStaticVoidMethod(log_class, log::GetMethodId(log::kShutdown));
       LogDebug("VJ: CAlled static void method");
       CheckAndClearJniExceptions(env);
