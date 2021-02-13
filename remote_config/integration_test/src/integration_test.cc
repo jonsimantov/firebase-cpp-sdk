@@ -96,6 +96,7 @@ FirebaseRemoteConfigTest::~FirebaseRemoteConfigTest() {
   assert(app_ == nullptr);
 #if TEST_DEPRECATED == 0
   assert(rc_ == nullptr);
+#endif
 }
 
 void FirebaseRemoteConfigTest::SetUp() {
