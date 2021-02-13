@@ -552,10 +552,13 @@ bool Initialize(JNIEnv* env, jobject activity_object) {
 // Terminate the utilities library.  Releases all global references to
 // classes.
 void Terminate(JNIEnv* env) {
+  LogDebug("VJ: in Terminate");
   FIREBASE_ASSERT(g_initialized_count);
   g_initialized_count--;
   if (g_initialized_count == 0) {
+    LogDebug("VJ: g_initialized count is 0");
     if (g_task_callbacks) {
+      LogDebug("VJ: cancelling callbacks");
       CancelCallbacks(env, nullptr);
       pthread_mutex_lock(&g_task_callbacks_mutex);
       delete g_task_callbacks;
@@ -564,14 +567,19 @@ void Terminate(JNIEnv* env) {
       pthread_mutex_destroy(&g_task_callbacks_mutex);
     }
 
+    LogDebug("VJ: shutting down logs ")
     // Shutdown the log if it was initialized.
     jclass log_class = log::GetClass();
     if (log_class) {
+      LogDebug("VJ: ;Got log class")
       env->CallStaticVoidMethod(log_class, log::GetMethodId(log::kShutdown));
+      LogDebug("VJ: CAlled static void method");
       CheckAndClearJniExceptions(env);
     }
 
+    LogDebug("VJ: Releasing classes");
     ReleaseClasses(env);
+    LogDebug("VJ: Terminating classes");
     TerminateActivityClasses(env);
   }
 }
