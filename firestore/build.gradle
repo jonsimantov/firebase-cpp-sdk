@@ -18,7 +18,7 @@ buildscript {
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.3.3'
+    classpath 'com.android.tools.build:gradle:2.3.0'
   }
 }
 allprojects {
@@ -36,8 +36,8 @@ ext {
 }
 
 android {
-  compileSdkVersion 28
-  buildToolsVersion '28.0.3'
+  compileSdkVersion 25
+  buildToolsVersion '25.0.2'
 
   sourceSets {
     main {
@@ -54,7 +54,7 @@ android {
   defaultConfig {
     // Jelly Bean is the minimum supported version needed by Firebase.
     minSdkVersion 16
-    targetSdkVersion 28
+    targetSdkVersion 25
     versionCode 1
     versionName "1.0"
 
