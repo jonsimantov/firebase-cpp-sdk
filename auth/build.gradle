@@ -36,7 +36,7 @@ ext {
 }
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion 21
   buildToolsVersion '28.0.3'
 
   sourceSets {
@@ -54,7 +54,7 @@ android {
   defaultConfig {
     // This is the platform API where NativeActivity was introduced.
     minSdkVersion 9
-    targetSdkVersion 28
+    targetSdkVersion 21
     versionCode 1
     versionName "1.0"
 
