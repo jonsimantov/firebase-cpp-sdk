@@ -14,19 +14,13 @@
 
 buildscript {
   repositories {
-    google()
     jcenter()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.3.3'
+    classpath 'com.android.tools.build:gradle:2.3.0'
   }
 }
-allprojects {
-  repositories {
-    google()
-    jcenter()
-  }
-}
+
 
 apply plugin: 'com.android.library'
 
@@ -36,8 +30,8 @@ ext {
 }
 
 android {
-  compileSdkVersion 21
-  buildToolsVersion '28.0.3'
+  compileSdkVersion 25
+  buildToolsVersion '25.0.2'
 
   sourceSets {
     main {
@@ -54,7 +48,7 @@ android {
   defaultConfig {
     // This is the platform API where NativeActivity was introduced.
     minSdkVersion 9
-    targetSdkVersion 21
+    targetSdkVersion 25
     versionCode 1
     versionName "1.0"
 
@@ -80,11 +74,11 @@ android {
 }
 
 apply from: "$rootDir/android_build_files/android_abis.gradle"
-// apply from: "$rootDir/android_build_files/extract_and_dex.gradle"
-// apply from: "$rootDir/android_build_files/generate_proguard.gradle"
-// project.afterEvaluate {
-  // generateProguardFile('app')
-  // setupDexDependencies(':app:app_resources')
-  // setupDexDependencies(':app:google_api_resources')
-  // setupDexDependencies(':app:invites_resources')
-// }
+apply from: "$rootDir/android_build_files/extract_and_dex.gradle"
+apply from: "$rootDir/android_build_files/generate_proguard.gradle"
+project.afterEvaluate {
+  generateProguardFile('app')
+  setupDexDependencies(':app:app_resources')
+  setupDexDependencies(':app:google_api_resources')
+  setupDexDependencies(':app:invites_resources')
+}
