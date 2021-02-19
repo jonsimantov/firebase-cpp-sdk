@@ -87,9 +87,9 @@ dependencies {
   implementation project(':app')
 }
 apply from: "$rootDir/android_build_files/android_abis.gradle"
-apply from: "$rootDir/android_build_files/extract_and_dex.gradle"
-apply from: "$rootDir/android_build_files/generate_proguard.gradle"
-project.afterEvaluate {
-  generateProguardFile('auth')
-  setupDexDependencies(':auth:auth_resources')
-}
+// apply from: "$rootDir/android_build_files/extract_and_dex.gradle"
+// apply from: "$rootDir/android_build_files/generate_proguard.gradle"
+// project.afterEvaluate {
+  // generateProguardFile('auth')
+  // setupDexDependencies(':auth:auth_resources')
+// }

@@ -80,11 +80,11 @@ android {
 }
 
 apply from: "$rootDir/android_build_files/android_abis.gradle"
-apply from: "$rootDir/android_build_files/extract_and_dex.gradle"
-apply from: "$rootDir/android_build_files/generate_proguard.gradle"
-project.afterEvaluate {
-  generateProguardFile('app')
-  setupDexDependencies(':app:app_resources')
-  setupDexDependencies(':app:google_api_resources')
-  setupDexDependencies(':app:invites_resources')
-}
+// apply from: "$rootDir/android_build_files/extract_and_dex.gradle"
+// apply from: "$rootDir/android_build_files/generate_proguard.gradle"
+// project.afterEvaluate {
+  // generateProguardFile('app')
+  // setupDexDependencies(':app:app_resources')
+  // setupDexDependencies(':app:google_api_resources')
+  // setupDexDependencies(':app:invites_resources')
+// }
